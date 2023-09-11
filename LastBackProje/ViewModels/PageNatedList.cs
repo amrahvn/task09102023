@@ -13,20 +13,40 @@ namespace LastBackProje.ViewModels
             Start = CurrentPAge - (int)Math.Ceiling((decimal)(pageItemCount - currentPAge) / 2);
             End = CurrentPAge + (int)Math.Floor((decimal)(pageItemCount-currentPAge)/ 2);
 
-            if (TotalPAge > pageItemCount)
+            if (Start <= 0)
             {
-                if (Start <= 0)
+                End = End - (Start - 1);
+                Start = 1;
+            }
+
+            if (End > totalPage)
+            {
+               if(TotalPAge>pageItemCount)
                 {
-                    End = End - (Start - 1);
+                    Start = TotalPAge - (pageItemCount - 1);
+                }
+                else
+                {
                     Start = 1;
                 }
-
-                if (End > totalPage)
-                {
-                    Start = TotalPAge - (pageItemCount-1);
-                    End = TotalPAge;
-                }
+                End = TotalPAge;
             }
+
+
+            //if (TotalPAge > pageItemCount)
+            //{
+            //    if (Start <= 0)
+            //    {
+            //        End = End - (Start - 1);
+            //        Start = 1;
+            //    }
+
+            //    if (End > totalPage)
+            //    {
+            //        Start = TotalPAge - (pageItemCount-1);
+            //        End = TotalPAge;
+            //    }
+            //}
 
             this.AddRange(query);
         }

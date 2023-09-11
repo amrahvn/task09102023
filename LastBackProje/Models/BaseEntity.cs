@@ -9,9 +9,9 @@ namespace LastBackProje.Models
         public bool IsDeleted { get; set; }
 
         [StringLength(255)]
-        public string CreatedBy { get; set; }
+        public string CreatedBy { get; set; } = "System";
 
-        public DateTime CreatedDate { get; set;}
+        public DateTime CreatedDate { get; set;}=DateTime.Now;
 
         [StringLength(255)]
         public string? UpdatedBy { get; set; }

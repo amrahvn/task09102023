@@ -6,7 +6,7 @@
 
 <!--====== Slider Part Start ======-->
 @await Component.InvokeAsync("HomeSlider")
-
+ 
 <!--====== Slider Part Ends ======-->
 
 <!--====== Banner Part Start ======-->
@@ -41,12 +41,13 @@
                 </div>
             </div>
         </div> <!-- row -->
+
         <div class="row category-active">
             @for (int i = 0; i < (int)Math.Ceiling((decimal)Model.categories.Count() / 2); i++)
             {
                 <div class="col-lg-2">
 
-                    @foreach (Category category in Model.categories.Skip(i*2).Take(2))
+                    @foreach (Category category in Model.categories.Skip(i * 2).Take(2))
                     {
                         <div class="single-category text-center">
                             <a target="_blank" href="shop-left-sidebar.html">
@@ -55,12 +56,11 @@
                             </a>
                         </div> <!-- single category -->
                     }
-      
+
                 </div>
             }
-           
-          
         </div> <!-- row -->
+
     </div> <!-- container -->
 </section>
 
@@ -87,11 +87,15 @@
                 </div> <!-- product menu -->
             </div>
         </div> <!-- row -->
+        @await Component.InvokeAsync("tab_content", Model)
+        
 
     </div> <!-- container -->
 </section>
 
 <!--====== Product Part Ends ======-->
+
+
 <!--====== Special Products Part Start ======-->
 
 <section class="special-products-area pt-70 pb-120">
